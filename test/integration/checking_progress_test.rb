@@ -1,16 +1,6 @@
 require 'test_helper'
 
 class CheckingProgressTest < ActionDispatch::IntegrationTest
-  def teardown
-    $test_user = nil
-  end
-
-  def log_me_in
-    user = create_a_user()
-    $test_user = user
-    user
-  end
-
   def test_checking_my_high_level_progress
     greg = log_me_in()
 

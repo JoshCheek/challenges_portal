@@ -14,4 +14,15 @@ class ActiveSupport::TestCase
     User.create! email:    "101glover@gmail.com",
                  password: password
   end
+
+  def teardown
+    $test_user = nil
+    super
+  end
+
+  def log_me_in
+    user = create_a_user()
+    $test_user = user
+    user
+  end
 end
