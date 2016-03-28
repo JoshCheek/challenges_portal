@@ -35,4 +35,8 @@ class LoggingInTest < ActionDispatch::IntegrationTest
     assert page.has_link?('login')
     refute page.has_link?('logout')
   end
+
+  # Other thoughts:
+  #  def test_i_dont_get_logged_in_if_i_fuck_up_my_email_or_password
+  #  the flash messages show up in the view
 end
