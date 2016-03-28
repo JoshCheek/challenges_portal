@@ -15,13 +15,13 @@ class LoggingInTest < ActionDispatch::IntegrationTest
     page.click_link 'login'
 
     # I fill "email" in with "101glover@gmail.com"
-    page.fill_in 'email', with: "101glover@gmail.com"
+    page.fill_in 'Email', with: "101glover@gmail.com"
 
     # I fill "password" in with "lolhimom"
-    page.fill_in 'password', with: "lolhimom"
+    page.fill_in 'Password', with: "lolhimom"
 
     # I click "Login"
-    page.click_button 'Login'
+    page.click_button 'Log in'
 
     # Am on my home page
     assert_equal '/home', page.current_path
