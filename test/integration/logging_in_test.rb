@@ -2,8 +2,7 @@ require 'test_helper'
 
 class LoggingInTest < ActionDispatch::IntegrationTest
   def test_i_can_login_and_out
-    greg = User.create! email:    "101glover@gmail.com",
-                        password: "lolhimom"
+    greg = create_a_user(password: 'lolhimom')
 
     # I'll go to the root of the site
     page.visit root_path
@@ -15,7 +14,7 @@ class LoggingInTest < ActionDispatch::IntegrationTest
     page.click_link 'login'
 
     # I fill "email" in with "101glover@gmail.com"
-    page.fill_in 'Email', with: "101glover@gmail.com"
+    page.fill_in 'Email', with: greg.email
 
     # I fill "password" in with "lolhimom"
     page.fill_in 'Password', with: "lolhimom"
