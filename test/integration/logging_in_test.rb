@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class LoggingInTest < ActionDispatch::IntegrationTest
-  def test_i_can_login
+  def test_i_can_login_and_out
     greg = User.create! email:    "101glover@gmail.com",
                         password: "lolhimom"
 
@@ -29,5 +29,10 @@ class LoggingInTest < ActionDispatch::IntegrationTest
     # I can log out, but not in
     assert page.has_link?('logout')
     refute page.has_link?('login')
+
+    # Now I log out
+    page.click_link 'logout'
+    assert page.has_link?('login')
+    refute page.has_link?('logout')
   end
 end
