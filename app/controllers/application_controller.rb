@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
       stored_location_for(resource) || request.referer || root_path
     end
   end
+
+  def current_user
+    $test_user || super
+  end
 end

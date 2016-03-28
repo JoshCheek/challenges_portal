@@ -1,18 +1,35 @@
 require 'test_helper'
 
 class CheckingProgressTest < ActionDispatch::IntegrationTest
+  def teardown
+    $test_user = nil
+  end
+
   def log_me_in
     user = create_a_user()
-    # ... figure out what it means to fake logging in!
+    $test_user = user
+    user
   end
 
   def test_checking_my_high_level_progress
     greg = log_me_in()
-    skip
 
     # I'm on my homepage
+    page.visit home_path
+
     # I see a list of my challenges
-    # I see that I've completed the "Linked list challenges"
+    challenge_names = page.all('.challenge .name').map(&:text)
+    assert_includes challenge_names, 'linked list functions'
+    assert_includes challenge_names, 'list recursion'
+
+    # I see that I've completed the "Linked list functions"
+    challenge = challenges.css('.challenge').to_a
+                          .find { |challenge| challenge.text == 'linked list functions' }
+
+    progress = challenge.find('.progress')
+    assert_equal '2', progress.find('.correct').text
+    assert_equal '65', progress.find('.possible').text
+
     # I see that I've completed 2 of the 65 "Module Challenges"
     # I see that I've not started "ActiveRecord challenges"
   end
