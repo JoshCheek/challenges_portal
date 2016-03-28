@@ -9,10 +9,10 @@ class LoggingInTest < ActionDispatch::IntegrationTest
     page.visit root_path
 
     # I see some welcome page
-    assert_matches /welcome/i, page.body
+    assert_match /welcome/i, page.body
 
     # I click the "login" link
-    page.click 'login'
+    page.click_link 'login'
 
     # I fill "email" in with "101glover@gmail.com"
     page.fill_in 'email', with: "101glover@gmail.com"
