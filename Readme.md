@@ -1,6 +1,11 @@
 Challenges Portal
 =================
 
+* [user stories and first test](https://vimeo.com/160672975)
+* [adding authentication](https://vimeo.com/160669062)
+* [Login and logout links](https://vimeo.com/160669063)
+* [Figuring out auth stubbing](https://vimeo.com/160669066)
+
 What's my user's experience like?
 ---------------------------------
 
