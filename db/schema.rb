@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328181029) do
+ActiveRecord::Schema.define(version: 20160330211559) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string  "name"
+    t.integer "parent_id"
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string  "name"
+    t.integer "parent_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",               default: "", null: false
